@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Burger- 01</title>
+    <link href="css/styles.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+    <meta content="IE=edge" http-equiv=X-UA-Compatible>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
+    <!--[if IE 7]>
+        <link href="css/stylesie7.css" rel="stylesheet" type="text/css" media="screen">
+    <![endif]-->
+</head>
+<body>
+<!--    ------------------------------  NAV BURGER -->
+    <div class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <nav class="menu">
+        <ul>
+            <li><a href="#header">HOME</a></li>
+            <li><a href="#intro">INTRO</a></li>
+            <li><a href="#a-propos">A PROPOS</a></li>
+            <li><a href="#gallerie">GALLERIE</a></li>
+            <li><a href="">BLOG</a></li>
+            <li><a href="">CONTACT</a></li>
+        </ul>
+    </nav>
+<!--    ------------------------------  HEADER -->
+    <header id="header">
+        <p>balise<strong>header</strong> </p>
+    </header>
+<!--    ------------------------------  MAIN   -->
+    <main>
+        <section id="intro" class="intro">
+            <p>section<strong>intro</strong> </p>
+        </section>
+        <section id="a-propos" class="a-propos">
+            <p>section<strong>a-propos</strong> </p>
+        </section>
+        <section id="gallerie" class="gallerie">
+            <p>section<strong>gallerie</strong> </p>
+        </section>
+    </main>
+<!--    ------------------------------  FOOTER -->
+    <footer>
+        
+    </footer>
+    
+    <div id="scroll_to_top">
+        <img src="imgs/scrolltop.png">
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function(){
+            
+            $(".burger").click(function(){
+                $("nav.menu").toggleClass("is-open");
+                return false;
+            });
+            $(".burger").click(function(){
+                $( this ).toggleClass("burger-open");
+                return false;
+            });
+            $("nav.menu ul li a").click(function(){
+                $("nav.menu").removeClass("is-open");
+                $(".burger").removeClass("burger-open");
+//                return false;
+            });
+            
+            
+//            Scroll to top
+            $(document).ready(function() {
+                function scroll_to_top(div) {
+                    $(div).click(function() {
+                        $('html,body').animate({scrollTop: 0}, 1000);
+                    });
+                    $(window).scroll(function(){
+                        if($(window).scrollTop()<100){
+                            $(div).fadeOut();
+                        } else{
+                            $(div).fadeIn();
+                        }
+                    });
+                }
+                scroll_to_top("#scroll_to_top");
+            });
+            
+            
+            
+            
+            $(function() {
+                
+                
+//            Scroll des ancres nommées sur un .click
+            $("a[href*='#']:not([href='#'])").click(function() {
+                if (
+                    location.hostname == this.hostname
+                    && this.pathname.replace(/^\//,"") == location.pathname.replace(/^\//,"")
+                ) {
+                    var anchor = $(this.hash);
+                    anchor = anchor.length ? anchor : $("[name=" + this.hash.slice(1) +"]");
+                    if ( anchor.length ) {
+                        $("html, body").animate( { scrollTop: anchor.offset().top }, 1000);
+                    }
+                }
+                });
+            });
+                
+        });
+    </script>
+    
+</body>
+</html>
+
+
+
+
+
+
